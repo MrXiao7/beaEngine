@@ -30,7 +30,7 @@ void __bea_callspec__ G9_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg2dqword;
             (*pMyDisasm).Instruction.Category = GENERAL_PURPOSE_INSTRUCTION+DATA_TRANSFER;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "cmpxchg16b ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"cmpxchg16b ");
             #endif
             (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+GENERAL_REG+REG0+REG2;
             (*pMyDisasm).Argument1.ArgSize = 128;
@@ -41,7 +41,7 @@ void __bea_callspec__ G9_(PDISASM pMyDisasm)
         else {
             (*pMyDisasm).Instruction.Category = GENERAL_PURPOSE_INSTRUCTION+DATA_TRANSFER;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "cmpxchg8b ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"cmpxchg8b ");
             #endif
             (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+GENERAL_REG+REG0+REG2;
             (*pMyDisasm).Argument1.ArgSize = 64;
@@ -54,17 +54,17 @@ void __bea_callspec__ G9_(PDISASM pMyDisasm)
         (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
         if (GV.OperandSize == 16) {
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmclear ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmclear ");
             #endif
         }
         else if (GV.PrefRepe == 1) {
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmxon ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmxon ");
             #endif
         }
         else {
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmptrld ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmptrld ");
             #endif
         }
         GV.EIP_ += GV.DECALAGE_EIP+2;
@@ -73,7 +73,7 @@ void __bea_callspec__ G9_(PDISASM pMyDisasm)
     else if (GV.REGOPCODE == 7) {
         (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmptrst ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmptrst ");
         #endif
         GV.EIP_ += GV.DECALAGE_EIP+2;
     }

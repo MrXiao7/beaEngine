@@ -28,7 +28,7 @@ void __bea_callspec__ G4_Eb(PDISASM pMyDisasm)
         }
         (*pMyDisasm).Instruction.Category = GENERAL_PURPOSE_INSTRUCTION+ARITHMETIC_INSTRUCTION;
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "inc ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"inc ");
         #endif
         Eb(pMyDisasm);
         FillFlags(pMyDisasm, 40);
@@ -39,7 +39,7 @@ void __bea_callspec__ G4_Eb(PDISASM pMyDisasm)
         }
         (*pMyDisasm).Instruction.Category = GENERAL_PURPOSE_INSTRUCTION+ARITHMETIC_INSTRUCTION;
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "dec ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"dec ");
         #endif
         Eb(pMyDisasm);
         FillFlags(pMyDisasm, 30);

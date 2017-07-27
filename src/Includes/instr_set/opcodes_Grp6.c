@@ -38,7 +38,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         }
         MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "sldt ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"sldt ");
         #endif
         (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG1;
         (*pMyDisasm).Argument2.ArgSize = 32;
@@ -54,7 +54,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         }
         MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "str ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"str ");
         #endif
         (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG3;
         (*pMyDisasm).Argument2.ArgSize = 16;
@@ -65,7 +65,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         GV.MemDecoration = Arg2word;
         MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "lldt ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"lldt ");
         #endif
         (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG1;
         (*pMyDisasm).Argument1.ArgSize = 16;
@@ -76,7 +76,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         GV.MemDecoration = Arg2word;
         MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "ltr ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"ltr ");
         #endif
         (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG3;
         (*pMyDisasm).Argument1.ArgSize = 16;
@@ -87,7 +87,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         GV.MemDecoration = Arg1word;
         MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "verr ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"verr ");
         #endif
         (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+SPECIAL_REG+REG0;
         (*pMyDisasm).Argument2.ArgSize = 16;
@@ -98,7 +98,7 @@ void __bea_callspec__ G6_(PDISASM pMyDisasm)
         GV.MemDecoration = Arg1word;
         MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "verw ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"verw ");
         #endif
         (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+SPECIAL_REG+REG0;
         (*pMyDisasm).Argument2.ArgSize = 16;

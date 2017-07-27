@@ -30,28 +30,28 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             if (GV.RM_ == 0x1) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmcall ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmcall ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x2) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmlaunch ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmlaunch ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x3) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmresume ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmresume ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x4) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmxoff ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmxoff ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
@@ -63,7 +63,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg1fword;
             MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "sgdt ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"sgdt ");
             #endif
             (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG0;
             (*pMyDisasm).Argument2.ArgSize = 48;
@@ -75,14 +75,14 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             if (GV.RM_ == 0x00) {
                 (*pMyDisasm).Instruction.Category = SSE3_INSTRUCTION+AGENT_SYNCHRONISATION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "monitor ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"monitor ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x01) {
                 (*pMyDisasm).Instruction.Category = SSE3_INSTRUCTION+AGENT_SYNCHRONISATION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "mwait ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"mwait ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
@@ -95,7 +95,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
             (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "sidt ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"sidt ");
             #endif
             (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG2;
             (*pMyDisasm).Argument2.ArgSize = 48;
@@ -107,14 +107,14 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             if (GV.RM_ == 0x0) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "xgetbv ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"xgetbv ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x1) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "xsetbv ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"xsetbv ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
@@ -127,7 +127,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
             (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "lgdt ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"lgdt ");
             #endif
             (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG0;
             (*pMyDisasm).Argument1.ArgSize = 48;
@@ -139,56 +139,56 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             if (GV.RM_ == 0x0) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmrun ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmrun ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x1) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmmcall ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmmcall ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x2) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmload ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmload ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x3) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "vmsave ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"vmsave ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x4) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "stgi ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"stgi ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x5) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "clgi ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"clgi ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x6) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "skinit ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"skinit ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
             else if (GV.RM_ == 0x7) {
                 (*pMyDisasm).Instruction.Category = VM_INSTRUCTION;
                 #ifndef BEA_LIGHT_DISASSEMBLY
-                   (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "invlpga ");
+                   (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"invlpga ");
                 #endif
                 GV.EIP_+= GV.DECALAGE_EIP+2;
             }
@@ -201,7 +201,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
             (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "lidt ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"lidt ");
             #endif
             (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+MEMORY_MANAGEMENT_REG+REG2;
             (*pMyDisasm).Argument1.ArgSize = 48;
@@ -214,7 +214,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
         MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
         (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "smsw ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"smsw ");
         #endif
         (*pMyDisasm).Argument1.ArgType = REGISTER_TYPE+CR_REG+REG0;
         (*pMyDisasm).Argument1.ArgSize = 16;
@@ -226,7 +226,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
         MOD_RM(&(*pMyDisasm).Argument1, pMyDisasm);
         (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
         #ifndef BEA_LIGHT_DISASSEMBLY
-           (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "lmsw ");
+           (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"lmsw ");
         #endif
         (*pMyDisasm).Argument2.ArgType = REGISTER_TYPE+CR_REG+REG0;
         (*pMyDisasm).Argument2.ArgSize = 16;
@@ -238,7 +238,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
                 if (GV.RM_ == 0x0) {
                     (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
                     #ifndef BEA_LIGHT_DISASSEMBLY
-                       (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "swapgs ");
+                       (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"swapgs ");
                     #endif
                     GV.EIP_+= GV.DECALAGE_EIP+2;
                 }
@@ -250,7 +250,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
                 if (GV.RM_ == 0x1) {
                     (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
                     #ifndef BEA_LIGHT_DISASSEMBLY
-                       (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "rdtscp ");
+                       (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"rdtscp ");
                     #endif
                     GV.EIP_+= GV.DECALAGE_EIP+2;
                 }
@@ -264,7 +264,7 @@ void __bea_callspec__ G7_(PDISASM pMyDisasm)
             MOD_RM(&(*pMyDisasm).Argument2, pMyDisasm);
             (*pMyDisasm).Instruction.Category = SYSTEM_INSTRUCTION;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "invlpg ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"invlpg ");
             #endif
             GV.EIP_+= GV.DECALAGE_EIP+2;
         }

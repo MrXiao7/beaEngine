@@ -28,7 +28,7 @@ void __bea_callspec__ G16_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg2byte;
             (*pMyDisasm).Instruction.Category = SSE_INSTRUCTION+CACHEABILITY_CONTROL;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "prefetchNTA ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"prefetchNTA ");
             #endif
         }
         else {
@@ -41,7 +41,7 @@ void __bea_callspec__ G16_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg2byte;
             (*pMyDisasm).Instruction.Category = SSE_INSTRUCTION+CACHEABILITY_CONTROL;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "prefetchT0 ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"prefetchT0 ");
             #endif
         }
         else {
@@ -55,7 +55,7 @@ void __bea_callspec__ G16_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg2byte;
             (*pMyDisasm).Instruction.Category = SSE_INSTRUCTION+CACHEABILITY_CONTROL;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "prefetchT1 ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"prefetchT1 ");
             #endif
         }
         else {
@@ -69,7 +69,7 @@ void __bea_callspec__ G16_(PDISASM pMyDisasm)
             GV.MemDecoration = Arg2byte;
             (*pMyDisasm).Instruction.Category = SSE_INSTRUCTION+CACHEABILITY_CONTROL;
             #ifndef BEA_LIGHT_DISASSEMBLY
-               (void) strcpy ((*pMyDisasm).Instruction.Mnemonic, "prefetchT2 ");
+               (void) strcpy_s ((*pMyDisasm).Instruction.Mnemonic, 16,"prefetchT2 ");
             #endif
         }
         else {
